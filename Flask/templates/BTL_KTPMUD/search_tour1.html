@@ -1,0 +1,43 @@
+<!-- Ví dụ về mã HTML để hiển thị form tìm kiếm và kết quả -->
+<html>
+<head>
+    <!-- Thêm CSS và JavaScript nếu cần -->
+</head>
+<body>
+    <form action="{{ url_for('search_tour') }}" method="post">
+        <input type="text" name="search" placeholder="Nhập từ khóa bạn muốn tìm...">
+        <button type="submit">Tìm kiếm</button>
+    </form>
+    {% if search_results %}
+        <table>
+            <tr>
+                <th>Ma Tour</th>
+                <th>Ten Tour</th>
+                <th>Diem Den</th>
+                <th>Diem Dung</th>
+                <th>Thoi Gian</th>
+                <th>Gia Tour</th>
+                <th>Danh Sach Dia Diem</th>
+                <th>Ma Kha San</th>
+                <th>So Luong Nguoi</th>
+            </tr>
+            {% for tour in search_results %}
+            <tr>
+                <td>{{ tour[0] or 'N/A' }}</td>
+                <td>{{ tour[1] or 'N/A' }}</td>
+                <td>{{ tour[2] or 'N/A' }}</td>
+                <td>{{ tour[3] or 'N/A' }}</td>
+                <td>{{ tour[4] or 'N/A' }}</td>
+                <td>{{ tour[5] or 'N/A' }}</td>
+                <td>{{ tour[6] or 'N/A' }}</td>
+                <td>{{ tour[7] or 'N/A' }}</td>
+                <td>{{ tour[8] or 'N/A' }}</td>
+            </tr>
+            {% endfor %}
+            
+        </table>
+    {% else %}
+        <p>Không tìm thấy tour nào phù hợp.</p>
+    {% endif %}
+</body>
+</html>

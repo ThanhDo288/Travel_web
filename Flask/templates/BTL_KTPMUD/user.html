@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
+
+    <title>Document</title>
+</head>
+<body>
+  <header>  
+    
+ <!----------------------------------Menu bar---------------------------------------->    
+
+       <div class="header-top"> 
+        <i class="fas fa-bars"></i>
+        <ul>
+            <li style="--x:1;"><a href="#">Trang chủ</a></li>
+            <li style="--x:2;"><a href="#">Tour du lịch</a></li>
+            <li style="--x:3;"><a href="#">Điểm đến</a></li>
+            <li style="--x:4;"><a href="#">Tin tức</a></li>
+            <li style="--x:5;"><a href="#">Giới thiệu</a></li>
+            <li style="--x:6;"><a href="#">Liên hệ</a></li>
+        </ul>
+
+<!-- {#----------------------------------User-----------------------------#} -->
+
+<div class="homepage-icons">
+    <img src="{{ url_for('static', filename='images/user.jpg') }}" alt="Example Image" id="user-avatar">
+    <div id="dropdown-menu" class="dropdown-content" style="display: none;">
+        <!-- Add other menu items here if needed -->
+        <a href="/logout">Đăng xuất</a>
+        <a href="/info">Thông tin cá nhân</a> <!-- Thêm nút "Thông tin cá nhân" và liên kết đến "/info" -->
+    </div>
+</div>
+
+        
+        
+ <!-----------------------------------Ảnh nền-------------------------------> 
+
+    <img class="anhninhbinh" src="{{ url_for('static', filename='images/ninhbinh.jpg') }}" alt="Example Image">
+
+ <!-----------------------------------Chọn địa điểm------------------------------->         
+</div>
+<div class="header-content">
+    <h1>Khám phá</h1>
+    <h3>Xách ba lô và đi thôi nào</h3>
+    <form action="/search_tour" method="POST">
+        <h1>Bạn muốn đi đâu</h1>
+        <input type="text" name="search" placeholder="Tìm kiếm tour du lịch...">
+        <button type="submit">Tìm kiếm</button>
+    </form>
+</div>
+  </header>  
+
+<!-------------------------------Tour nổi bật-----------------------------------> 
+
+<section class="nice-place">
+    <div class="container">
+        <h1>Tour Nổi Bật</h1>
+        <div class="nice-place-content row">
+            <div class="nice-place-item">
+                <div class="nice-place-img">
+                    <img src="{{ url_for('static', filename='images/baidinh-trangan.jpg') }}" alt="Example Image">
+                </div>
+                <div class="nice-place-text">
+                    <h2>Tour Ninh Bình 1 Ngày: Chùa Bái Đính - Tràng An</h2>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <p>Chùa Bái Đính là một quần thể chùa lớn với nhiều kỷ lục châu Á và Việt Nam được xác lập như chùa có tượng Phật bằng đồng dát vàng lớn nhất châu Á</p>
+                    <a href="http://127.0.0.1:5000/bookings">
+                        <button type="button">890.000đ</button>
+                      </a>
+
+                </div>
+            </div>
+            <div class="nice-place-item">
+                <div class="nice-place-img">
+                    <img src="{{ url_for('static', filename='images/hoalu-hangmua-tamcoc.jpg') }}" alt="Example Image">
+                </div>
+                <div class="nice-place-text">
+                    <h2>Hoa Lư - Hang Múa - Tam Cốc 1 ngày</h2>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <p>Hang Múa Ninh Bình tọa lạc trên ngọn núi Ngọa Long Hùng Vĩ cách nội thành thành phố Ninh Bình khoảng 10km, cách thủ đô Hà Nội 100km.</p>
+                    <a href="http://127.0.0.1:5000/bookings">
+                        <button type="button">990.000đ</button>
+                      </a>
+                </div>
+            </div>
+            <div class="nice-place-item">
+                <div class="nice-place-img">
+                    <img src="{{ url_for('static', filename='images/hoalu-tamcoc.jpg') }}" alt="Example Image">
+                </div>
+                <div class="nice-place-text">
+                    <h2>Khám phá Ninh Bình: Hoa Lư - Tam Cốc 1 ngày</h2>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <p>Tam Cốc, có nghĩa là "ba hang", gồm hang Cả, hang Hai và hang Ba. Cả ba hang đều được tạo thành bởi dòng sông Ngô Đồng đâm xuyên qua núi.</p>
+                    <a href="http://127.0.0.1:5000/bookings">
+                        <button type="button">699.000đ</button>
+                      </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+ <!--------------------------------------Service--------------------------------->
+
+<div class="service-wrapper">
+    <div class="service">
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/hotel.png') }}" alt="Example Image">
+            <p>Đặt phòng</p>
+        </div>
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/customerservice.png') }}" alt="Example Image">
+            <p>Dịch vụ 24/7</p>
+        </div>
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/guidebook.png') }}" alt="Example Image">
+            <p>Guide book</p>
+        </div>
+    </div>
+</div>
+
+ <!--------------------------------------Tour Xuân 2024----------------------------------> 
+
+<section class="tour">
+    <div class="container">
+        <h1>Tour Xuân 2024</h1>
+        
+    </div>
+</section>
+
+
+ <!----------------------------------Về chúng tôi---------------------------------> 
+
+<section class="about">
+    <div class="container">
+        <h1>Về Chúng Tôi</h1>
+        <div class="about-content row"> 
+            <div class="about-content-left">
+                <img src="{{ url_for('static', filename='images/about.jpg') }}" alt="Example Image">
+            </div>
+            <div class="about-content-right">
+                <h2>Tại sao bạn nên chọn chúng tôi ?</h2>
+                <p>Chúng tôi là công ty hàng đầu về cung cấp dịch vụ du lịch Ninh Bình</p>
+                <button>Tìm hiểu thêm</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--------------------------------------Phản hồi----------------------------------> 
+
+<section class="review">
+    <div class="container">
+        <h1 class="h1-style">Phản hồi</h1>
+        <div class="review-content row">
+            <div class="review-item">
+                <div class="review-item-text">
+                    <img src="{{ url_for('static', filename='images/quotes.png') }}" alt="Example Image">
+                    <p><span>&ldquo;</span>Ninh Bình tuyệt vời !<span>&ldquo;</span></p>
+                </div>
+                <div class="review-item-img row">
+                    <img src="{{ url_for('static', filename='images/thanhdo.jpg') }}" alt="Example Image">
+                    <div class="review-item-img-text">
+                        <h2>Vũ Duy Phương</h2>
+                        <p>Ngày 19/12/2023</p>
+                    </div>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-item-text">
+                    <img src="{{ url_for('static', filename='images/quotes.png') }}" alt="Example Image">
+                    <p><span>&ldquo;</span>Ninh Bình tuyệt vời !<span>&ldquo;</span></p>
+                </div>
+                <div class="review-item-img row">
+                    <img src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="Example Image">
+                    <div class="review-item-img-text">
+                        <h2>Vũ Duy Phương</h2>
+                        <p>Ngày 19/12/2023</p>
+                    </div>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-item-text">
+                    <img src="{{ url_for('static', filename='images/quotes.png') }}" alt="Example Image">
+                    <p><span>&ldquo;</span>Ninh Bình tuyệt vời !<span>&ldquo;</span></p>
+                </div>
+                <div class="review-item-img row">
+                    <img src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="Example Image">
+                    <div class="review-item-img-text">
+                        <h2>Vũ Duy Phương</h2>
+                        <p>Ngày 19/12/2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/user.js') }}"></script>
+</body>
+</html>

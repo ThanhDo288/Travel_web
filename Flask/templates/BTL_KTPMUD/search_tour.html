@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm kiếm tour du lịch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <!-- Đảm bảo link tới file CSS của bạn đúng -->
+    <!-- Thêm FontAwesome cho icon sao đánh giá -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+<section class="nice-place">
+    <div class="container">
+        <h1>Kết quả tìm kiếm</h1>
+        <div class="nice-place-content row">
+            {% if search_results %}
+                {% for tour in search_results %}
+                    <div class="nice-place-item">
+                        <div class="nice-place-img">
+                            <!-- Sử dụng ảnh tĩnh hoặc tạo một cách để định cấu hình ảnh động dựa trên kết quả tìm kiếm -->
+                            {% set image_number = range(1, image_count + 1) | random %}
+                            <img src="{{ url_for('static', filename='images/' ~ image_number ~ '.jpg') }}" alt="Hình ảnh của tour">
+                        </div>
+                        <div class="nice-place-text">
+                            <h2>{{ tour[1] or 'Tên tour không rõ' }}</h2>
+                            <!-- Ví dụ: Thêm 5 sao đánh giá. Tùy chỉnh dựa trên dữ liệu đánh giá thực tế của tour -->
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <p>Điểm đến: {{ tour[2] or 'N/A' }} - Điểm dừng: {{ tour[3] or 'N/A' }}</p>
+                            <p>Thời gian: {{ tour[4] or 'N/A' }} - Giá: {{ tour[5] or 'N/A' }}đ</p>
+                            <a href="{{ url_for('bookings', tour_id=tour[0]) }}">
+                                <button type="button">Đặt</button>
+                            </a>                            
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Không tìm thấy tour nào phù hợp.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+</body>
+</html>

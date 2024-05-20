@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #6dbfe2;
+            color: white;
+        }
+        td {
+            background-color: #6dbfe2;
+        }
+        tr:nth-child(even) td {
+            background-color: #f2f2f2;
+        }
+        .payment-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #6dbfe2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+    
+    <title>THÔNG TIN CÁ NHÂN</title>
+</head>
+<body>
+    <h2>THÔNG TIN CÁ NHÂN</h2>
+    <table>
+        <tr>
+            <th>Mã Khách Hàng</th>
+            <td>{{ ma_khach_hang }}</td>
+        </tr>
+        <tr>
+            <th>Tên Khách Hàng</th>
+            <td>{{ ten_khach_hang }}</td>
+        </tr>
+        <tr>
+            <th>Ngày Sinh</th>
+            <td>{{ ngay_sinh }} </td>
+        </tr>
+        
+        <tr>
+            <th>Địa chỉ</th>
+            <td>{{ dia_chi }} </td>
+        </tr>
+        <tr>
+            <th>SDT</th>
+            <td>{{ SDT }} </td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ Email }} </td>
+        </tr>
+        <tr>
+            <th>CCCD</th>
+            <td>{{ CCCD }} </td>
+        </tr>
+    </table>
+</body>
+</html>
